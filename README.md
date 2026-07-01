@@ -1,40 +1,164 @@
+# Portfolio - Guide d'installation
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Ce document explique comment recuperer le projet depuis GitHub, installer les dependances, lancer l'application et la visualiser en local.
 
-## Getting Started
+## Prerequis
 
-First, run the development server:
+Avant de commencer, installez les outils suivants :
+
+- Node.js 20.9 minimum
+- npm
+- Git
+
+Pour verifier votre environnement :
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+## Recuperer le lien du depot GitHub
+
+1. Ouvrez le depot GitHub du projet :
+
+```text
+https://github.com/CarlaWAHA/Portfolio
+```
+
+2. Cliquez sur le bouton `Code`.
+3. Copiez l'URL HTTPS du depot :
+
+```text
+https://github.com/CarlaWAHA/Portfolio.git
+```
+
+## Cloner le projet
+
+Dans un terminal, placez-vous dans le dossier ou vous voulez installer le projet, puis executez :
+
+```bash
+git clone https://github.com/CarlaWAHA/Portfolio.git
+```
+
+Entrez ensuite dans le dossier du projet :
+
+```bash
+cd Portfolio
+```
+
+## Installer les dependances
+
+Installez les dependances definies dans `package.json` :
+
+```bash
+npm install
+```
+
+Cette commande installe notamment :
+
+- Next.js
+- React
+- React DOM
+- TypeScript
+- Tailwind CSS
+- ESLint
+
+## Lancer le projet en mode developpement
+
+Demarrez le serveur de developpement :
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Next.js lance alors l'application en local, generalement sur :
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Visualiser le portfolio
 
-## Learn More
+Ouvrez votre navigateur et allez a l'adresse suivante :
 
-To learn more about Next.js, take a look at the following resources:
+```text
+http://localhost:3000
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+La page affiche le portfolio avec les sections :
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Navigation
+- Hero
+- A propos
+- Competences
+- Projets
+- Experiences
+- Contact
 
-## Deploy on Vercel
+## Verifier la qualite du code
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Pour lancer ESLint :
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run lint
+```
 
-# Portfolio
->>>>>>> 5f91fb10969cbe4bbc10b69f638c8b0a0d3b81f7
+Cette commande controle le code avec la configuration ESLint de Next.js.
+
+## Construire le projet pour la production
+
+Pour generer une version de production :
+
+```bash
+npm run build
+```
+
+Pour demarrer la version de production apres le build :
+
+```bash
+npm run start
+```
+
+L'application sera de nouveau accessible dans le navigateur, generalement sur :
+
+```text
+http://localhost:3000
+```
+
+## Commandes utiles
+
+| Commande | Description |
+| --- | --- |
+| `npm install` | Installe les dependances du projet |
+| `npm run dev` | Lance le serveur de developpement |
+| `npm run lint` | Verifie la qualite du code avec ESLint |
+| `npm run build` | Genere le build de production |
+| `npm run start` | Lance le serveur de production apres un build |
+
+## Structure principale
+
+```text
+Portfolio/
+|-- app/
+|   |-- globals.css
+|   |-- layout.tsx
+|   `-- page.tsx
+|-- public/
+|-- src/
+|   |-- components/
+|   `-- data/
+|-- eslint.config.mjs
+|-- next.config.ts
+|-- package.json
+|-- postcss.config.mjs
+|-- tsconfig.json
+`-- README.md
+```
+
+## Notes
+
+- Le projet utilise l'App Router de Next.js.
+- Le style est gere avec Tailwind CSS.
+- Les donnees du portfolio sont centralisees dans `src/data/portfolio.tsx`.
+- Les composants d'interface sont separes dans `src/components/`.
